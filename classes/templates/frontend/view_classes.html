@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Classes</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<h2>Available Classes</h2>
+
+<ul>
+    {% for class in classes %}
+        <li>{{ class.class_name }} - <a href="{% url 'classes:view_class_schedule' class.id %}">View Schedule</a> | 
+        <a href="{% url 'classes:enroll_in_class' class.id %}">Enroll</a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

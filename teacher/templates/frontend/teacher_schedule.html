@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Schedules</title>
+    <link rel="stylesheet" href="/static/css/teachers.css">
+</head>
+<body>
+
+    <h2>Teacher Schedules</h2>
+    <table class="table">
+        <tr>
+            <th>Teacher</th>
+            <th>Class</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+        {% for schedule in schedules %}
+        <tr>
+            <td>{{ schedule.teacher.first_name }}</td>
+            <td>{{ schedule.class_instance.class_name }}</td>
+            <td>{{ schedule.day_of_week }}</td>
+            <td>{{ schedule.start_time }} - {{ schedule.end_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

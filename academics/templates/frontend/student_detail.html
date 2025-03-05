@@ -1,0 +1,12 @@
+<h1>{{ student.first_name }} {{ student.last_name }}</h1>
+<p>Date of Birth: {{ student.date_of_birth }}</p>
+<p>Student ID: {{ student.student_id }}</p>
+
+<h2>Academic Records</h2>
+<ul>
+    {% for record in student.academic_records.all %}
+    <li>{{ record.subject }} - {{ record.grade }} ({{ record.year }})</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ student.id }}/add_record/">Add Academic Record</a>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; }
+        h2 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { background: white; padding: 10px; margin: 5px auto; border-radius: 5px; max-width: 400px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+    <h2>Library Books</h2>
+    <a href="{% url 'book_add' %}">Add New Book</a> | <a href="{% url 'member_register' %}">Register</a>
+    <ul>
+        {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> by {{ book.author }}  
+            ({{ book.quantity }} available)
+            <a href="{% url 'book_checkout' book.id %}">Checkout</a>
+        </li>
+        {% empty %}
+        <p>No books available.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!-- students/templates/students/edit_student.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/manage_students.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Edit Student: {{ student.first_name }} {{ student.last_name }}</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'students:manage_students' %}">Manage Students</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form method="POST">
+            {% csrf_token %}
+            {{ student_form.as_p }}
+            {{ academic_form.as_p }}
+            <button type="submit">Update Student</button>
+        </form>
+    </main>
+</body>
+</html>

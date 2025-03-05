@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule Report</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="report-container">
+        <h1>Class Schedule Report</h1>
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Teacher Name</th>
+                    <th>Class Schedule</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in report_data %}
+                    <tr>
+                        <td>{{ entry.teacher.get_full_name }}</td>
+                        <td>{{ entry.schedule }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

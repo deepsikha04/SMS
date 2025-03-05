@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Card</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Report Card for {{ student.user.username }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Exam</th>
+                <th>Marks Obtained</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.student_exam.exam.name }}</td>
+                    <td>{{ grade.marks_obtained }}</td>
+                    <td>{{ grade.grade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

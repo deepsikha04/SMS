@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        form { display: inline-block; text-align: left; }
+        button { padding: 10px 15px; background: #28a745; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Mark Attendance</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
+    <h3>Student List</h3>
+    <ul>
+        {% for student in students %}
+        <li>{{ student.first_name }} {{ student.last_name }}</li>
+        {% empty %}
+        <li>No students available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

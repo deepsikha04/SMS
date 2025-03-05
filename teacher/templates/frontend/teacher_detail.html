@@ -1,0 +1,22 @@
+<!-- frontend/teacher_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Detail</title>
+    <link rel="stylesheet" href="/static/css/teachers.css">
+</head>
+<body>
+
+    <h2>{{ teacher.first_name }} {{ teacher.last_name }}</h2>
+    <p><strong>Email:</strong> {{ teacher.email }}</p>
+    <p><strong>Contact:</strong> {{ teacher.contact_number }}</p>
+    <p><strong>Subjects:</strong> {{ teacher.subjects_taught }}</p>
+    <p><strong>Date of Hire:</strong> {{ teacher.date_of_hire }}</p>
+
+    <a href="{% url 'edit_teacher' teacher.pk %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'delete_teacher' teacher.pk %}" class="btn btn-danger">Delete</a>
+
+</body>
+</html>

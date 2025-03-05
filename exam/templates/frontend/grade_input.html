@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Grades</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Input Grades for {{ exam.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for student_exam in student_exams %}
+            <div>
+                <label for="marks_{{ student_exam.id }}">{{ student_exam.student.user.username }} - Marks:</label>
+                <input type="number" name="marks_{{ student_exam.id }}" required>
+            </div>
+        {% endfor %}
+        <button type="submit">Save Grades</button>
+    </form>
+</body>
+</html>
